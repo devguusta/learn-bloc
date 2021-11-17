@@ -14,7 +14,7 @@ class PostsModule extends Module {
         ),
         Bind.lazySingleton(
           (i) => PostsBloc(
-            repository: i.get<PostsRepository>(),
+            i.get<PostsRepository>(),
           ),
         ),
       ];

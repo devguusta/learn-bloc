@@ -1,8 +1,14 @@
 import 'package:blocjson/core/services/dio/utils/failure.dart';
+import 'package:blocjson/modules/posts/model/post_model.dart';
 
 abstract class PostsState {}
 
-class PostsStateSuccess implements PostsState {}
+class PostsStateSuccess implements PostsState {
+  List<PostsModel> listPost = [];
+  PostsStateSuccess({
+    required this.listPost,
+  });
+}
 
 class PostsStateFailure implements PostsState {
   late Failure error;
