@@ -13,6 +13,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(
           child: ElevatedButton(
@@ -21,6 +22,12 @@ class _HomePageState extends State<HomePage> {
             },
             child: const Text("Posts"),
           ),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Modular.to.pushNamed("/local_auth");
+          },
+          child: const Text("Posts"),
         ),
       ],
     ));

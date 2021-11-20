@@ -22,14 +22,15 @@ class _PostsPageState extends State<PostsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: BlocBuilder<PostsBloc, PostsState>(
           bloc: Modular.get<PostsBloc>(),
           builder: (context, state) {
             if (state is PostsStateLoading) {
-              return const CircularProgressIndicator();
+              return const Center(child: CircularProgressIndicator());
             } else if (state is PostsStateSuccess) {
               return ListView.builder(
-                  itemCount: state.listPost.length,
+                  itemCount: state.listPost.length - 90,
                   itemBuilder: (context, index) {
                     return ListTile(
                       title: Text(state.listPost[index].title),
