@@ -75,7 +75,31 @@ class LocalAuthPage extends StatelessWidget {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: (context) => HomePage()),
             );
-          } else {}
+          } else {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text('Erro'),
+                  content: SingleChildScrollView(
+                    child: ListBody(
+                      children: const <Widget>[
+                        Text('Você não ativou nenhuma autenticação.'),
+                      ],
+                    ),
+                  ),
+                  actions: <Widget>[
+                    TextButton(
+                      child: const Text('Approve'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          }
         },
       );
 
